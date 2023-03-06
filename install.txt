@@ -1,0 +1,3 @@
+pip install Flask-Ext
+pip install flask-mandrill
+pip install flask-mandrill
