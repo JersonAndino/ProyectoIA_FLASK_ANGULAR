@@ -101,12 +101,21 @@ cors = CORS(app)
 # In[ ]:
 @app.route('/', methods=['GET', 'POST']) 
 def obtener_datos():
-    datos = {
-        "nombre": "uan",
-        "edad": 35,
-        "ciudad": "Bogotá"
-    }
-    return json.dumps(datos)
+   
+   data = request.get_json()
+   
+   rating=data.get('rating')
+   sector=data.get('sector')
+   ownership=data.get('ownership')
+   job_title=data.get('job_title')
+   job_in_headquarters=data.get('job_in_headquarters')
+   job_seniority=data.get('job_seniority')
+   job_skills=data.get('job_skills')
+   job_skills=job_skills.split(',')
+   
+   #print(job_skills)   
+   
+   return json.dumps({"message":"MENSAJE DE RESPUESTA"})
 ##datos=sys.argv
 ##res=predecir_Isla(datos[1],datos[2],datos[3],datos[4],datos[5],datos[6],datos[7],datos[8],datos[9],datos[10],datos[11],datos[12],datos[13])
 #salary=predecir_Salario(3.8, 1893, 'Health Care', 'Nonprofit Organization', 'Data Analyst', 1, 'sr', ['python', 'sql', 'tableau'])
